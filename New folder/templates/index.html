@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Image Classification</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="separator" style="clear: both; text-align: left">
+      <a
+        href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAFQm6TkNG_M8dw0IYJGb7EC-1iM3QVnyuDFG3sqM3RsTN3aQc4aH_fZfwKU4iy5Glfd0ZZT-bBJk5YPa6I2WzTFzCzpDFLFJfmrk1Oo0yD0OxSiejU90OmfPtm8nzkLuUJ2xsG54_oh9nEvi_RPzubOxITrX5LeYtU4hn7cqith4kZzz5gBDBVG8g7qk/s728/Ad%202.png"
+        style="margin-left: 1em; margin-right: 1em"
+      >
+        <img
+          border="0"
+          data-original-height="90"
+          data-original-width="728"
+          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAFQm6TkNG_M8dw0IYJGb7EC-1iM3QVnyuDFG3sqM3RsTN3aQc4aH_fZfwKU4iy5Glfd0ZZT-bBJk5YPa6I2WzTFzCzpDFLFJfmrk1Oo0yD0OxSiejU90OmfPtm8nzkLuUJ2xsG54_oh9nEvi_RPzubOxITrX5LeYtU4hn7cqith4kZzz5gBDBVG8g7qk/s16000/Ad%202.png"
+        />
+      </a>
+    </div>
+    <br />
+    <p><br /></p>
+
+    <div class="container">
+      <form
+        action="/submit2"
+        class="form-horizontal"
+        enctype="multipart/form-data"
+        id="form2"
+        method="post"
+      >
+        <div class="form-group">
+          <label class="control-label col-sm-2" style="text-align: left"
+            >Image to Text :</label
+          >
+          <div class="col-sm-10">
+            <input
+              class="form-control"
+              id="my_image"
+              name="my_image"
+              style="width: 536px"
+              type="file"
+              onchange="submitForm()"
+            />
+          </div>
+        </div>
+
+        {% if prediction %}
+        <h6>{{prediction}}</h6>
+        {% endif %}
+      </form>
+
+      <script>
+        function submitForm() {
+          document.getElementById("form2").submit();
+          document.getElementById("my_image").disabled = true; // Disable the file input to prevent multiple submissions
+        }
+      </script>
+
+      <form
+        action="/submit"
+        class="form-horizontal"
+        enctype="multipart/form-data"
+        id="form1"
+        method="post"
+      >
+        <div class="form-group" id="downloadButton" style="display: none">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button class="btn btn-success" type="submit">
+              Download to Text
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <script>
+        // Show download button if prediction exists
+        {% if prediction %}
+        document.getElementById("downloadButton").style.display = "block";
+        {% endif %}
+      </script>
+
+      <form
+        action="/submit1"
+        class="form-horizontal"
+        enctype="multipart/form-data"
+        id="form3"
+        method="post"
+      >
+        <div class="form-group">
+          <label class="control-label col-sm-2" style="text-align: left"
+            >Multiple Images or One Image to PDF :</label
+          >
+          <div class="col-sm-10">
+            <input
+              class="form-control"
+              id="my_images"
+              multiple=""
+              name="my_images"
+              style="width: 536px"
+              type="file"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button class="btn btn-success" type="submit">
+              Download to PDF
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <p><br /></p>
+    <p>
+      <b
+        ><span style="font-size: large"
+          >Why our OCR - Image to Text - Service is the best?</span
+        ></b
+      >
+    </p>
+    <p>
+      <b>- 100% Free:</b> Our service is completely free to use, with no hidden
+      charges or subscription fees.
+    </p>
+    <p>
+      <b>- Fast:</b> Experience quick and efficient image conversion with our
+      speedy processing.
+    </p>
+    <p>
+      <b>- Accurate:</b> Rely on our advanced algorithms to provide accurate and
+      reliable text extraction, maintaining the integrity of your content.
+    </p>
+    <p>
+      <b>- Multiple images at once:</b> Save time by uploading and converting
+      multiple images to text simultaneously, streamlining your workflow.
+    </p>
+    <p>
+      <b>- All image formats:</b> Our converter accepts a variety of image
+      formats, including PNG, JPG, JPEG, and WEBP, making it versatile and
+      user-friendly.
+    </p>
+    <p>
+      <b>- Data security:</b> Your privacy is our utmost priority. Rest assured,
+      we never sell or share the data you upload, ensuring a secure and
+      confidential conversion process.
+    </p>
+  </body>
+</html>
